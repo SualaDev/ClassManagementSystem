@@ -1,6 +1,6 @@
 import { Controller, Get, Put } from '@nestjs/common';
 
-@Controller('/teachers/:teacherId/students')
+@Controller('/teachers/:teacherId/students ')
 export class StudentTeacherController {
   @Get()
   getTeachers() {
