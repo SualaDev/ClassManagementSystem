@@ -19,22 +19,20 @@ export class StudentController {
   getStudentById(
     @Param('StudentId') studentId: string,
   ): FindStudentResponseDto {
-    return `Get Student With Id of ${studentId}`;
+    return this.studentService.getStudentById(studentId);
   }
 
   @Post()
   createStudent(@Body() body: CreateStudentDto): StudentResponseDto {
     console.log(body);
-    return `Create Student With The Following Data ${JSON.stringify(body)}`;
+    return this.studentService.createStudent(body);
   }
 
   @Put('/:StudentId')
   updateStudent(
     @Param('StudentId') studentId: string,
     @Body() body: UpdateStudentDto,
-  ): FindStudentResponseDto {
-    return `Update Student With Id of ${studentId} With Data Of ${JSON.stringify(
-      body,
-    )}`;
+  ): StudentResponseDto {
+    return this.studentService.updateStudent(body, studentId);
   }
 }
