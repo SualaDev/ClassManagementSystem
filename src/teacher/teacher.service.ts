@@ -9,4 +9,10 @@ export class TeacherService {
   getTeachers(): FindTeacherResponseDto[] {
     return this.teachers;
   }
+
+  getTeacherById(teacherId: string): FindTeacherResponseDto {
+    return this.teachers.find((teacher) => {
+      return teacher.id === teacherId;
+    });
+  }
 }
